@@ -8,12 +8,22 @@ function main() {
     const validade = isPrimo(numero)
     
     // saída
-    print (`${validade}`)
+    if (validade == true) {
+        print (`O número é primo.`)
+    } else {
+        print(`O número não é primo.`)
+    }
 }
 
 // processamento
-function isPrimo(number) {
-    
+function isPrimo(number, i) {
+    for (i = 2; i <= number; i++) {
+        if ((number % 1 == 0) && (number % i == 0)) {
+            return false;
+        } else {
+            return true            
+        }
+    }    
 }
 
 main()
