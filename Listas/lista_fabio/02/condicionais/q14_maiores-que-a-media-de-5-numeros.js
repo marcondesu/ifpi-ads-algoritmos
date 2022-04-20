@@ -11,9 +11,10 @@ function main() {
     const num5 = Number(input("5º Número: "))
 
     const resultado_media = median(num1, num2, num3, num4, num5)
+    const maiores_que_a_media = greaterThanMedian(num1, num2, num3, num4, num5, resultado_media)
 
     // saída
-    print(resultado_media)
+    print(`\nA média é igual a ${resultado_media}\nOs valores maiores que a média são ${maiores_que_a_media}`)
 }
 
 // processamento
@@ -21,6 +22,28 @@ function median(n1, n2, n3, n4, n5) {
     const media = (n1 + n2 + n3 + n4 + n5) / 5
 
     return media
+}
+
+function greaterThanMedian(n1, n2, n3, n4, n5, median) {
+    let maiores = []
+
+    if (n1 > median) {
+        maiores.push(n1)
+    }
+    if (n2 > median) {
+        maiores.push(n2)
+    }
+    if (n3 > median) {
+        maiores.push(n3)
+    }
+    if (n4 > median) {
+        maiores.push(n4)
+    }
+    if (n5 > median) {
+        maiores.push(n5)
+    }
+
+    return maiores
 }
 
 main()
