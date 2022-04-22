@@ -17,8 +17,10 @@ function main() {
         print('Segundo quadrante.')
     } else if (quadrante == 3) {
         print('Terceiro quadrante.')
-    } else {
+    } else if (quadrante == 4) {
         print('Quarto quadrante.')
+    } else {
+        print('O ângulo não se encontra em nenhum dos quadrantes.')
     }
 }
 
