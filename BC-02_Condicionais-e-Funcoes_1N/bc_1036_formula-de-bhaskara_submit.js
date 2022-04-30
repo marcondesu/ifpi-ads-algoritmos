@@ -1,20 +1,17 @@
-import {print, input} from '../io_utils.js'
+var input = require('fs').readFileSync('/dev/stdin', 'utf-8');
+var lines = input.split('\n');
 
 function main() {
-    print('\n------- Calcular raízes com a Fórmula de Bhaskara -------\n')
-
     // entrada
-    const a = Number(input("Coeficiente A: "))
-    const b = Number(input("Coeficiente B: "))
-    const c = Number(input("Coeficiente C: "))
+    const [a, b, c] = lines[0].split(' ').map(Number)
 
     const raizes = calcularRaizesEquacao2Grau(a, b, c)
 
     // saída
     if (raizes) {
-        print(`\nR1 = ${raizes[0]}\nR2 = ${raizes[1]}`)
+        console.log(`R1 = ${raizes[0]}\nR2 = ${raizes[1]}`)
     } else {
-        print('\nImpossivel calcular')
+        console.log('Impossivel calcular')
     }
 }
 
