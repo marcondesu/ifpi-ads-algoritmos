@@ -25,7 +25,7 @@ function main() {
         }else if (opcao === 2) {
             palavrasSemLetraE(palavras)
         }else if (opcao === 3) {
-            avoids()
+            avoids(palavras)
         }
 
         // convergencia dos dados
@@ -39,6 +39,7 @@ function main() {
     console.log('Fim!')
 }
 
+// 9.1
 function palavrasComMaisDe20Letras(palavras) {
     let contador = 0
 
@@ -54,6 +55,7 @@ function palavrasComMaisDe20Letras(palavras) {
     console.log(`\nExistem ${contador} palavras (${percentual.toFixed(3)}%) com mais de 20 letras.`)
 }
 
+// 9.2
 function palavrasSemLetraE(palavras) {
     let contador = 0
 
@@ -68,12 +70,13 @@ function palavrasSemLetraE(palavras) {
     console.log(`\nExistem ${contador} palavras (${percentual.toFixed(3)}%) sem a letra "E".`) 
 }
 
-function avoids() {
+function avoids(palavras) {
     let palavra = input('Palavra: ')
 
     console.log('\nA série de letras proibidas deve ser digitada no formato (a b c d)\n')
     let serie = input('Letras proibidas: ').split(' ')
 
+    // tratamento da palavra
     for (let i = 0; i < serie.length; i++) {
         for (let x = 0; x < palavra.length; x++) {
             if (serie[i] === palavra[x]) {
@@ -82,6 +85,18 @@ function avoids() {
             }
         }
     }
+
+    let contador
+
+    for (let i = 0; i < serie.length; i++) {
+        for (let palavra of palavras) {
+            if (has_no_letter(palavra, serie[i])) {
+                contador++
+            }
+        }
+    }
+
+    console.log(`Existem ${contador} palavras sem as letras da série informada.`)
 }
 
 function has_no_letter(palavra, letter){
