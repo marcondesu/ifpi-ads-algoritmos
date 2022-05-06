@@ -6,7 +6,7 @@ function main() {
     let menu = '\n####   MENU   ####\n'
     menu += '\n1 - Palavras com mais de 20 letras'
     menu += '\n2 - Palavras sem a letra "E"'
-    menu += '\n3 - Verificar se determinada palavra não contém determinadas letras'
+    menu += '\n3 - Palavra sem letras proibidas'
     menu += '\n\n0 - Sair\n'
     menu += '------------------------------------------------------------\n'
 
@@ -15,6 +15,7 @@ function main() {
     console.log(`${palavras.length} palavras carregadas!`)
 
     // estado anterior
+    console.clear()
     console.log(menu)
     let opcao = Number(input('> '))
 
@@ -72,31 +73,42 @@ function palavrasSemLetraE(palavras) {
 
 function avoids(palavras) {
     let palavra = input('Palavra: ')
-
-    console.log('\nA série de letras proibidas deve ser digitada no formato (a b c d)\n')
-    let serie = input('Letras proibidas: ').split(' ')
+    let serie = input('Letras proibidas: ')
 
     // tratamento da palavra
-    for (let i = 0; i < serie.length; i++) {
-        for (let x = 0; x < palavra.length; x++) {
-            if (serie[i] === palavra[x]) {
-                console.log('True')
-                i = serie.lenght
-            }
+    if (palavraSemLetrasProibidas) {
+        console.log('\n\tTrue')
+    }
+
+    // verificação de todas palavras
+    for (let palavra of palavras) {
+        for (caractere of serie) {
+            if (has_no_letter(palavra, caractere)) {
+                console.log(palavra)
+                contador++
+            } 
         }
     }
 
     let contador
 
-    for (let i = 0; i < serie.length; i++) {
-        for (let palavra of palavras) {
-            if (has_no_letter(palavra, serie[i])) {
-                contador++
-            }
+    console.log(`\tExistem ${contador} palavras sem as letras da série informada.`)
+}
+
+function palavraSemLetrasProibidas(palavra, serie) {
+    let count = 0
+
+    for (let caractere of serie) {
+        if (has_no_letter(palavra, caractere)) {
+            count++
         }
     }
 
-    console.log(`Existem ${contador} palavras sem as letras da série informada.`)
+    if (count == serie.length) {
+        return true
+    } else {
+        return false
+    }
 }
 
 function has_no_letter(palavra, letter){
