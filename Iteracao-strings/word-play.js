@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import prompt from 'prompt-sync'
 const input = prompt()
+import { avoidsMenu } from './menus.js'
 
 function main() {
     let menu = '\n####   MENU   ####\n'
@@ -72,27 +73,28 @@ function palavrasSemLetraE(palavras) {
 }
 
 function avoids(palavras) {
+    // menu da função
+    avoidsMenu()
+
     let palavra = input('Palavra: ')
     let serie = input('Letras proibidas: ')
 
     // tratamento da palavra
-    if (palavraSemLetrasProibidas) {
+    if (palavraSemLetrasProibidas(palavra, serie)) {
         console.log('\n\tTrue')
     }
 
     // verificação de todas palavras
+    let contador = 0
+
     for (let palavra of palavras) {
-        for (caractere of serie) {
-            if (has_no_letter(palavra, caractere)) {
-                console.log(palavra)
-                contador++
-            } 
-        }
+        if (palavraSemLetrasProibidas(palavra, serie)) {
+            contador++
+        } 
     }
 
-    let contador
-
-    console.log(`\tExistem ${contador} palavras sem as letras da série informada.`)
+    const percentual = (contador / palavras.length) * 100
+    console.log(`\nExistem ${contador} palavras (${percentual.toFixed(3)}%) sem a letra "E".`) 
 }
 
 function palavraSemLetrasProibidas(palavra, serie) {
