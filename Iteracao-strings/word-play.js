@@ -1,11 +1,11 @@
 import * as fs from 'fs'
-import { getText, getNumber, enterToContinue, getNumberOnRange } from './input-utils.js'
+import { getText, enterToContinue, getNumberOnRange } from './input-utils.js'
 
 function main() {
     const palavras = loadWords()
     showMenu()
 
-    const [optionMin, optionMax] = [0, 3]
+    const [optionMin, optionMax] = [0, 5]
 
     // estado anterior
     let opcao = getNumberOnRange('> ', optionMin, optionMax)
@@ -14,10 +14,14 @@ function main() {
         // trabalho
         if (opcao === 1) {
             palavrasComMaisDe20Letras(palavras)
-        }else if (opcao === 2) {
+        } else if (opcao === 2) {
             palavrasSemLetraE(palavras)
-        }else if (opcao === 3) {
+        } else if (opcao === 3) {
             avoids(palavras)
+        } else if (opcao === 4) {
+            usesOnly()
+        } else if (opcao === 5) {
+            usesAll()
         }
 
         // convergencia dos dados
@@ -64,6 +68,7 @@ function palavrasSemLetraE(palavras) {
     console.log(`\nExistem ${contador} palavras (${percentual.toFixed(3)}%) sem a letra "E".`) 
 }
 
+// 9.3
 function avoids(palavras) {
     // menu da função
     console.log('\n\t-> Palavra sem letras proibidas <-\n')
@@ -89,6 +94,25 @@ function avoids(palavras) {
 
     const percentual = (contador / palavras.length) * 100
     console.log(`\nExistem ${contador} palavras (${percentual.toFixed(3)}%) sem as letras proibidas.`) 
+}
+
+// 9.4
+function usesOnly() {
+    console.log('\n\t-> Palavra com letras obrigatórias <-\n')
+
+    const palavra = getText('Palavra: ')
+    const serie = getText('Letras obrigatórias: ')
+
+    if (!(palavraSemLetrasProibidas(palavra, serie))) {
+        console.log('\n\tA palavra contém todas as letras obrigatórias.')
+    } else {
+        console.log('\nA palavra não contém todas as letras obrigatórias.')
+    }
+}
+
+// 9.5
+function usesAll() {
+    usesOnly()
 }
 
 function palavraSemLetrasProibidas(palavra, serie) {
@@ -121,25 +145,14 @@ function showMenu() {
     menu += '\n1 - Palavras com mais de 20 letras'
     menu += '\n2 - Palavras sem a letra "E"'
     menu += '\n3 - Palavra sem letras proibidas'
+    menu += '\n4 - Palavra com todas letras obrigatórias'
+    menu += '\n5 - Palavra com todas letras obrigatórias pelo menos uma vez.'
     menu += '\n\n0 - Sair\n'
     menu += '------------------------------------------------------------\n'
 
     console.clear()
     console.log(menu)
 }
-
-/* function palavras_com_mais_n_letras(palavras) {
-    let contador = 0
-    const qtd = input('Mais que quantas letras: ')
-   for (let palavra of palavras){
-       if (palavra.length > qtd){
-           console.log(palavra)
-           contador++
-       }
-   } 
-   const percentual = (contador / palavras.length) * 100
-   console.log(`Existem ${contador} (${percentual.toFixed(3)}%) com mais de ${qtd} letras`)
-} */
 
 function loadWords() {
     const palavras = loadfile().split('\n')
