@@ -5,11 +5,11 @@ export function getText(msg) {
     const text = input(msg)
 
     if (text.length == 0) {
-        console.log('# Erro! Texto vazio, digite algo.\n')
+        console.log('[X] Erro! Texto vazio, digite algo.\n')
 
         return getText(msg)
     } else if (!isNaN(text)) {
-        console.log('# Erro! Insira um texto.\n')
+        console.log('[X] Erro! Insira caracteres.\n')
 
         return getText(msg)
     }
@@ -21,7 +21,7 @@ export function getNumber(msg) {
     const number = Number(input(msg))
 
     if (isNaN(number)) {
-        console.log('# Erro! Digite um número.\n')
+        console.log('[X] Erro! Digite um número.\n')
 
         return getNumber(msg)
     }
@@ -33,7 +33,7 @@ export function getNumberOnRange(msg, min, max) {
     let number = getNumber(msg)
 
     while ((number < min) || (number > max)) {
-        console.log('# Erro! Opção inválida.\n')
+        console.log('[X] Erro! Opção inválida.\n')
         number = getNumber(msg)
     }
 
