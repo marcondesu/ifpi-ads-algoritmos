@@ -9,12 +9,34 @@ function main() {
 
     const score_1 = getNumber('1ª nota: ')
     const score_2 = getNumber('2ª nota: ')
+    console.clear()
+    
+    const result = calcAverageScore(score_1, score_2)
 
-    console.log(`${calcScoreAverage(number)}`)
+    if (result < 4) {
+        console.log(`\n[+] Nota 1: ${score_1}\n[+] Nota 2: ${score_2}\n`)
+        console.log(`[+] Média: ${result} (E)\n\n[!] Reprovado.`)
+    
+    } else if (result >= 4 && result < 6) {
+        console.log(`\n[+] Nota 1: ${score_1}\n[+] Nota 2: ${score_2}\n`)
+        console.log(`Média: ${result} (D)\n\n[!] Reprovado.`)
+    
+    } else if (result >= 6 && result < 7.5) {
+        console.log(`\n[+] Nota 1: ${score_1}\n[+] Nota 2: ${score_2}\n`)
+        console.log(`Média: ${result} (C)\n\n[!] Aprovado.`)
+        
+    } else if (result >= 7.5 && result < 9) {
+        console.log(`\n[+] Nota 1: ${score_1}\n[+] Nota 2: ${score_2}\n`)
+        console.log(`Média: ${result} (B)\n\n[!] Aprovado.`)
+
+    } else {
+        console.log(`\n[+] Nota 1: ${score_1}\n[+] Nota 2: ${score_2}\n`)
+        console.log(`Média: ${result} (A)\n\n[!] Aprovado.`)
+    }
 }
 
-function calcScoreAverage(score_1, score_2) {
-    const score_average = (score_1 + score_2) / 2
+function calcAverageScore(score_1, score_2) {
+    return (score_1 + score_2) / 2
 }
 
 function getNumber(msg) {
