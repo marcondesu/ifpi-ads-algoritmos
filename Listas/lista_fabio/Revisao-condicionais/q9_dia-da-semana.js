@@ -15,7 +15,7 @@ function main() {
 
 
 function verifyWeekDay(number) {
-    let dias = ['Domingo', 'Segunda-feira.', 'Terça-feira.', 'Quarta-feira.', 'Quinta-feira.', 'Sexta-feira.', 'Sábado.']
+    const dias = ['Domingo', 'Segunda-feira.', 'Terça-feira.', 'Quarta-feira.', 'Quinta-feira.', 'Sexta-feira.', 'Sábado.']
 
     return dias[number - 1]
 }

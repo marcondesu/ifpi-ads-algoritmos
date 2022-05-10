@@ -30,7 +30,7 @@ export function getNumber(msg) {
 }
 
 export function getNumberOnRange(msg, min, max) {
-    let number = getNumber(msg)
+    const number = getNumber(msg)
 
     while ((number < min) || (number > max)) {
         console.log('[X] Erro! Opção inválida.\n')
