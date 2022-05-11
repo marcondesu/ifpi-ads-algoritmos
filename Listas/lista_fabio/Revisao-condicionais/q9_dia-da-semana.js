@@ -12,8 +12,6 @@ function main() {
     console.log(`${verifyWeekDay(number)}`)
 }
 
-
-
 function verifyWeekDay(number) {
     const dias = ['Domingo', 'Segunda-feira.', 'Terça-feira.', 'Quarta-feira.', 'Quinta-feira.', 'Sexta-feira.', 'Sábado.']
 
