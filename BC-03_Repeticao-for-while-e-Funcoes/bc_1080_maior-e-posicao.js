@@ -28,7 +28,7 @@ function getLargestNumberAndItsPosition(testes) {
 
 function loadfile(){
     try{
-        const data = fs.readFileSync('teste.txt', 'utf-8')
+        const data = fs.readFileSync('bc_1080_teste.txt', 'utf-8')
         return data
     } catch (error){
         console.error(error)
