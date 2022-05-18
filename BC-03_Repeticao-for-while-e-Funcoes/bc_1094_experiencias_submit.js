@@ -1,13 +1,7 @@
-import * as fs from 'fs'
-import prompt from 'prompt-sync'
-const input = prompt()
+var input = require('fs').readFileSync('/dev/stdin', 'utf-8')
+var experiments = input.split('\n')
 
 function main() {
-    console.clear()
-    console.log('------- Organizar experiências de um laboratório -------\n')
-
-    const experiments = loadfile().split('\n')
-
     // tsubject -> test subject
     const total_tsubjects = getTotalTestSubjects(experiments)
     const classified_tsubjects = classifyTestSubjects(experiments)
@@ -36,11 +30,11 @@ function classifyTestSubjects(experiments) {
         line = line.split(' ')
 
         if (line != experiments[0]) {
-            if (line[1] === 'R\r') {
+            if (line[1] === 'R') {
                 rat += Number(line[0])
-            } else if (line[1] === 'S\r') {
+            } else if (line[1] === 'S') {
                 frog += Number(line[0])
-            } else if (line[1] === 'C\r') {
+            } else if (line[1] === 'C') {
                 rabbit += Number(line[0])
             }
         }
@@ -63,15 +57,6 @@ function getTotalTestSubjects(experiments) {
     total_test_subjects -= test_cases
 
     return total_test_subjects
-}
-
-function loadfile(){
-    try{
-        const data = fs.readFileSync('bc_1094_teste.txt', 'utf-8')
-        return data
-    } catch (error){
-        console.error(error)
-    }
 }
 
 main()
