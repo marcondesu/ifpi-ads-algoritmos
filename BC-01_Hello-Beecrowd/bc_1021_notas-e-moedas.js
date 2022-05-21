@@ -1,8 +1,8 @@
-import { print, input } from '../io_utils.js'
+import { loadFile } from '../Iteracao-strings/input-utils.js'
 
 function main() {
     // entrada
-    const dinheiro = Number(input("Dinheiro: "))
+    const dinheiro = Number(loadFile('../Testes/bc_1021_teste.txt'))
 
     // procesamento
     const nota_100 = Math.trunc(dinheiro / 100)
@@ -22,20 +22,21 @@ function main() {
     const moeda_01 = Math.round(dinheiro*100 - notas_somatorio*100 - moeda_1*100 - moeda_50*50 - moeda_25*25 - moeda_10*10 - moeda_5)
 
     // saída
-    print(`NOTAS:`)
-    print(`${nota_100} nota(s) de R$ 100,00`)
-    print(`${nota_50} nota(s) de R$ 50,00`)
-    print(`${nota_20} nota(s) de R$ 20,00`)
-    print(`${nota_10} nota(s) de R$ 10,00`)
-    print(`${nota_5} nota(s) de R$ 5,00`)
-    print(`${nota_2} nota(s) de R$ 2,00`)
-    print(`MOEDAS:`)
-    print(`${moeda_1} moeda(s) de R$ 1,00`)
-    print(`${moeda_50} moeda(s) de R$ 0,50`)
-    print(`${moeda_25} moeda(s) de R$ 0,25`)
-    print(`${moeda_10} moeda(s) de R$ 0,10`)
-    print(`${moeda_5} moeda(s) de R$ 0,05`)
-    print(`${moeda_01} moeda(s) de R$ 0,01`)
+    console.clear()
+    console.log(`NOTAS:`)
+    console.log(`${nota_100} nota(s) de R$ 100.00`)
+    console.log(`${nota_50} nota(s) de R$ 50.00`)
+    console.log(`${nota_20} nota(s) de R$ 20.00`)
+    console.log(`${nota_10} nota(s) de R$ 10.00`)
+    console.log(`${nota_5} nota(s) de R$ 5.00`)
+    console.log(`${nota_2} nota(s) de R$ 2.00`)
+    console.log(`MOEDAS:`)
+    console.log(`${moeda_1} moeda(s) de R$ 1.00`)
+    console.log(`${moeda_50} moeda(s) de R$ 0.50`)
+    console.log(`${moeda_25} moeda(s) de R$ 0.25`)
+    console.log(`${moeda_10} moeda(s) de R$ 0.10`)
+    console.log(`${moeda_5} moeda(s) de R$ 0.05`)
+    console.log(`${moeda_01} moeda(s) de R$ 0.01`)
 }
 
 main()

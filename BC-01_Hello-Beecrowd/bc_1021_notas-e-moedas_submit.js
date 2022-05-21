@@ -21,7 +21,7 @@ function main() {
     const moeda_10 = Math.trunc((dinheiro*100 - notas_somatorio*100 - moeda_1*100 - moeda_50*50 - moeda_25*25) / 10)
     const moeda_5 = Math.trunc((dinheiro*100 - notas_somatorio*100 - moeda_1*100 - moeda_50*50 - moeda_25*25 - moeda_10*10) / 5)
     const moeda_01 = Math.round(dinheiro*100 - notas_somatorio*100 - moeda_1*100 - moeda_50*50 - moeda_25*25 - moeda_10*10 - moeda_5)
-    
+
     // saída
     console.log(`NOTAS:`)
     console.log(`${nota_100} nota(s) de R$ 100.00`)
