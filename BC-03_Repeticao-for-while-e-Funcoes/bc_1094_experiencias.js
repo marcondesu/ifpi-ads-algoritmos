@@ -67,7 +67,7 @@ function getTotalTestSubjects(experiments) {
 
 function loadfile(){
     try{
-        const data = fs.readFileSync('bc_1094_teste.txt', 'utf-8')
+        const data = fs.readFileSync('../Testes/bc_1094_teste.txt', 'utf-8')
         return data
     } catch (error){
         console.error(error)

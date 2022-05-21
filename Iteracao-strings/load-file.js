@@ -10,7 +10,7 @@ function main(){
 
 function loadfile(){
     try{
-        const data = fs.readFileSync('palavras.txt', 'utf-8')
+        const data = fs.readFileSync('../Testes/palavras.txt', 'utf-8')
         return data
     } catch (error){
         console.error(error)
