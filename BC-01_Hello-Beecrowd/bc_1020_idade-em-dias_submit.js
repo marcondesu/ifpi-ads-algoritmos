@@ -16,4 +16,4 @@ function main() {
     console.log(`${dias} dia(s)`)
 }
 
-main() 
+main()
