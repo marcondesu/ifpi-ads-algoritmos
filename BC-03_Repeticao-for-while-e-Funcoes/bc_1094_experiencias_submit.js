@@ -18,7 +18,44 @@ function getTestSubjectsPercentage(total, test_subjects) {
     const rat_percentage = ((test_subjects[2]*100) / total).toFixed(2)
 
     return [rabbit_percentage, frog_percentage, rat_percentage]
+}
 
+function classifyTestSubjects(experiments) {
+    let rat = 0
+    let frog = 0
+    let rabbit = 0
+
+    for (let line of experiments) {
+        line = line.split(' ')
+
+        if (line != experiments[0]) {
+            if (line[1] === 'R\r') {
+                rat += Number(line[0])
+            } else if (line[1] === 'S\r') {
+                frog += Number(line[0])
+            } else if (line[1] === 'C\r') {
+                rabbit += Number(line[0])
+            }
+        }
+    }
+
+    return [rabbit, rat, frog]
+}
+
+function getTotalTestSubjects(experiments) {
+    const test_cases = Number(experiments[0])
+
+    let total_test_subjects = 0
+
+    for (let line of experiments) {
+        line = line.split(' ')
+
+        total_test_subjects += Number(line[0])
+    }
+
+    total_test_subjects -= test_cases
+
+    return total_test_subjects
 }
 
 function classifyTestSubjects(experiments) {

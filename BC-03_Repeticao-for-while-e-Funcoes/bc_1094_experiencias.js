@@ -1,12 +1,10 @@
-import * as fs from 'fs'
-import prompt from 'prompt-sync'
-const input = prompt()
+import { loadFile } from '../Iteracao-strings/input-utils.js'
 
 function main() {
     console.clear()
     console.log('------- Organizar experiências de um laboratório -------\n')
 
-    const experiments = loadfile().split('\n')
+    const experiments = loadFile('../Testes/bc_1094_teste.txt')
 
     // tsubject -> test subject
     const total_tsubjects = getTotalTestSubjects(experiments)
