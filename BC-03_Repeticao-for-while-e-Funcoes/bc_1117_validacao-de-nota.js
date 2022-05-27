@@ -7,18 +7,17 @@ function main() {
     console.log('------- Validação de nota -------\n')
 
     let scores = []
+    let count = 0
 
-    for (let line of lines) {
-        if (scores[1] >= 0) {
-            break;
-        }
-
-        if (validateScore(line)) {
-            scores.push(line)
-
-        } else  {
+    while (isNaN(scores[1]) === true) {
+        if (validateScore(Number(lines[count]))) {
+            scores.push(Number(lines[count]))
+        
+        } else {
             console.log('nota invalida')
         }
+
+        count++
     }
 
     const media = ((scores[0] + scores[1]) / 2).toFixed(2)

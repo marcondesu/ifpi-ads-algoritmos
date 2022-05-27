@@ -2,23 +2,29 @@ var input = require('fs').readFileSync('/dev/stdin', 'utf-8')
 var lines = input.split('\n')
 
 function main() {
-    for (let line of lines) {
-        if (line != line[0]) {
-            line = line.split(' ').map(Number)
-            
-            console.log(divideAndDecide(line[0], line[1]))
+    const lines_count = Number(lines[0])
+    let count = 1
+    let n1, n2
+
+    while (count <= lines_count) {
+        [n1, n2] = lines[count].split(' ').map(Number)
+
+        if (validateDivision(n2)) {
+            console.log(`${(n1 / n2).toFixed(1)}`)
+        } else {
+            console.log('divisao impossivel')
         }
+
+        count++
     }
 }
 
-function divideAndDecide(n1, n2) {
-    const result = n1 / n2
-
-    if (result === -Infinity || result === Infinity) {
-        return 'divisao impossivel'
-    } else {
-        return result.toFixed(1)
+function validateDivision(n2) {
+    if (n2 === 0) {
+        return false
     }
+
+    return true
 }
 
 main()
