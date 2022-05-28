@@ -1,57 +1,51 @@
 import { loadFile } from '../Iteracao-strings/input-utils.js'
-const lines = loadFile('../Testes/bc_1118_teste.txt').split('\r\n').map(Number)
-let count = 0
 
 function main() {
+    const lines = loadFile('../Testes/bc_1118_teste.txt').split('\r\n').map(Number)
 
     console.clear()
     console.log('------- Validação de várias notas -------\n')
 
-    let scores = []
-    let new_calculation = 1
+    let new_calc = 1
+    let score_1, score_2, count, result
 
-    while (new_calculation !== 2) {
-        if (isNaN(scores[1]) === false) {
-            console.log(scores[1])
-            new_calculation = getOption('novo calculo (1-sim 2-nao)', count)
-            scores = []
+    while (!(new_calc === 2)) {
+        if (!isNaN(score_2)) {
+            media = ((score_1 + score_2) / 2).toFixed(2)
+            console.log(`media = ${media}`)
+
+            result = getOption(lines, count)
+
+            count = result[1]
+            new_calc = result[0]
         }
 
-        if (validateScore(Number(lines[count]))) {
-            scores.push(Number(lines[count]))
-        
+        if (validateScore(lines[count])) {
+            if (isNaN(score_1)) {
+                score_1 = lines[count]
+            } else {
+                score_2 = lines[count]
+            }
         } else {
             console.log('nota invalida')
         }
 
         count++
     }
-
-    const media = ((scores[0] + scores[1]) / 2).toFixed(2)
-    console.log(`media = ${media}`)
 }
 
-function getOption(msg, count) {
-    console.log(msg)
+function getOption(lines, count) {
+    console.log('novo calculo (1-sim 2-nao)')
 
-    if (validateOption(lines[count])) {
-        return lines[count]
+    if (lines[count] === 1 || lines[count] === 2) {
+        return [lines[count], count]
     }
 
-    count++
-    return getOption(msg, count)
+    return getOption(lines, count)
 }
 
-function validateOption(option) {
-    return (option === 1 || option === 2)
-}
-
-function validateScore(value) {
-    if (value >= 0 && value <= 10) {
-        return true
-    } else {
-        return false
-    }
+function validateScore(score) {
+    return (score >= 0 && score <= 10)
 }
 
 main()
