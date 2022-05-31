@@ -13,4 +13,4 @@ function main() {
     print(`${horas}:${minutos}:${segundos}`)
 }
 
-main() 
+main()

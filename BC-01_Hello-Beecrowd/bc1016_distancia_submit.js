@@ -12,4 +12,3 @@ function calcMinutes(distance) {
 }
 
 main()
-

@@ -15,4 +15,4 @@ function main() {
     print(`${dias} dia(s)`)
 }
 
-main() 
+main()
