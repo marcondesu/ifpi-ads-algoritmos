@@ -1,20 +1,19 @@
 import {print, input} from '../../io_utils.js'
 
-function media2(a_, b_, c_) {
+function media_simples(x, y) {
     // procesamento
-    const media = (a_*2 + b_*3 + c_*5) / 10
+    const media = (x*3.5 + y*7.5) / 11
 
     // saída
-    print(`MEDIA = ${media.toFixed(1)}\n`)
+    print(`MEDIA = ${media.toFixed(5)}`)
 }
 
 function main() {
     // entrada
     const a = Number(input("A = "))
     const b = Number(input("B = "))
-    const c = Number(input("C = "))
 
-    media2(a, b, c)
+    media_simples(a, b)
 }
 
 main()
