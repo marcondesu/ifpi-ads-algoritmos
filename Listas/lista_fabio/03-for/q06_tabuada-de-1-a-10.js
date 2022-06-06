@@ -1,5 +1,3 @@
-import { getNumber } from '../../../Iteracao-strings/input-utils.js'
-
 function main() {
     console.clear()
     console.log('------- Tabuada de 1 a 10 -------\n')
