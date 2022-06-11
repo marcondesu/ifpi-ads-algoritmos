@@ -1,11 +1,7 @@
-import { loadFile } from '../Iteracao-strings/input-utils.js'
+let input = require('fs').readFileSync('/dev/stdin', 'utf-8')
+let lines = input.split('\n').map(Number)
 
-function main() {
-    console.clear()
-    console.log('------- Troca em Vetor I -------\n')
-    
-    const lines = loadFile('../Testes/bc1175_teste.txt').split('\r\n').map(Number)
-    
+function main() {    
     let vector_n = new Array(20)
     vector_n = fillArray(lines, 20)
     vector_n = invertArray(vector_n)    
