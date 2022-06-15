@@ -19,13 +19,13 @@ function isPrime(number) {
     if (number === 2) {
         return true
     } else {
-        for (let i = 2; i <= number; i++) {
-            if ((number % 1 === 0) && (number % i === 0)) {
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
                 return false
-            } else {
-                return true            
             }
         }
+
+        return true
     }
 }
 
