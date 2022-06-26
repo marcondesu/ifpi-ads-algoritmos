@@ -10,6 +10,7 @@ function main() {
     let [serra, dilma, ciro] = [0, 0, 0]
     let [indeciso, outros, nulo] = [0, 0, 0]
 
+    // enquanto a flag -1 não for lida vai ler os valores de lines
     while (lines[counter] !== -1) {
         if (lines[counter] === 13) {dilma++}
         else if (lines[counter] === 23) {ciro++}
