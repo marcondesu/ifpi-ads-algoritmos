@@ -62,7 +62,7 @@ export function showVectorLength(vector) {
         vector_length++
     }
 
-    console.log(`\nO vetor possui ${vector_length} itens.`)
+    console.log(`\nO vetor possui ${vector_length} itens.\n`)
 }
 
 export function showMinAndMaxValues(vector) {
@@ -91,4 +91,14 @@ export function showMeanVectorValue(vector) {
     }
 
     console.log(Math.trunc(sum / vector.length))
+}
+
+export function showSummation(vector) {
+    let summation = 0
+
+    for (let i = 0; i < vector.length; i++) {
+        summation += vector[i]
+    }
+
+    console.log(`\nA soma de todos os elementos do vetor é ${summation}\n`)
 }
