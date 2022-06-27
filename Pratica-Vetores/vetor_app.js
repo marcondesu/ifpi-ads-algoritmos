@@ -1,9 +1,9 @@
 import { getNumberOnRange, pressEnterToContinue } from './utils.js'
-import { inicializarVetorNumerico, resetVector, showMeanVectorValue, showMinAndMaxValues, showVectorLength } from './vetor_funcionalidades.js'
+import { inicializarVetorNumerico, resetVector, showMeanVectorValue, showMinAndMaxValues, showSummation, showVectorLength } from './vetor_funcionalidades.js'
 import { showVector } from './vetor_utils.js'
 
 function main() {
-    const [min_option, max_option] = [0, 5]
+    const [min_option, max_option] = [0, 6]
 
     let vector = inicializarVetorNumerico()
 
@@ -25,6 +25,9 @@ function main() {
         
         } else if (option === 5) {
             showMeanVectorValue(vector)
+
+        } else if (option === 6) {
+            showSummation(vector)
         }
         
         pressEnterToContinue()
@@ -43,6 +46,7 @@ function showMenu() {
     menu += '3. Ver quantidade de itens no vetor\n'
     menu += '4. Ver menor e maior valores e suas posições\n'
     menu += '5. Média dos valores\n'
+    menu += '6. Somatório dos valores\n'
     menu += '0. Sair\n'
 
     console.log(menu)
