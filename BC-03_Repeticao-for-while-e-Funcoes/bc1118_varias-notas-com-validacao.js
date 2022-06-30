@@ -1,47 +1,42 @@
 import { loadFile } from '../Iteracao-strings/input-utils.js'
 
 function main() {
-    const lines = loadFile('../Testes/bc_1118_teste.txt').split('\r\n').map(Number)
+    const lines = loadFile('../Testes/bc1118_teste.txt').split('\n').map(Number)
 
     console.clear()
     console.log('------- Validação de várias notas -------\n')
 
     let new_calc = 1
-    let score_1, score_2, count, result
+    let scores = []
+    let media = 0
+    let count = 0
 
-    while (!(new_calc === 2)) {
-        if (!isNaN(score_2)) {
-            media = ((score_1 + score_2) / 2).toFixed(2)
-            console.log(`media = ${media}`)
-
-            result = getOption(lines, count)
-
-            count = result[1]
-            new_calc = result[0]
-        }
-
+    while (new_calc === 1) {
         if (validateScore(lines[count])) {
-            if (isNaN(score_1)) {
-                score_1 = lines[count]
-            } else {
-                score_2 = lines[count]
-            }
+            scores.push(lines[count])
+        
         } else {
             console.log('nota invalida')
         }
-
+        
         count++
+
+        if (scores.length === 2) {
+            media = (scores[0] + scores[1]) / 2
+            console.log(`media = ${media.toFixed(2)}`)
+            
+            new_calc = 0
+            scores = []
+
+            while(!(new_calc === 1 || new_calc === 2)) {
+                console.log('novo calculo (1-sim 2-nao)')
+
+                new_calc = lines[count]
+
+                count++
+            }
+        }
     }
-}
-
-function getOption(lines, count) {
-    console.log('novo calculo (1-sim 2-nao)')
-
-    if (lines[count] === 1 || lines[count] === 2) {
-        return [lines[count], count]
-    }
-
-    return getOption(lines, count)
 }
 
 function validateScore(score) {
