@@ -1,2 +1,2 @@
 # ifpi-ads-algoritmos
-Repositório dedicado à matéria Algoritmo e Programação no IFPI em 2022
+Repositório dedicado à disciplina Algoritmo e Programação do curso Análise e Desenvolvimento de Sistemas no IFPI em 2022
