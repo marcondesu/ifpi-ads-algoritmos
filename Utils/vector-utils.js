@@ -45,6 +45,12 @@ export function pushVector(vector, element) {
     return new_vector
 }
 
+export function editValueInPosition(vector, position) {
+    vector[position -1] = getNumber('Novo valor: ')
+
+    return vector
+}
+
 export function getValuesInAVectorGreaterThan(vector, value) {
     let values = []
 
@@ -91,4 +97,48 @@ export function greaterValueOfAVector(vector) {
     }
 
     return greater_value
+}
+
+export function positiveValuesOfAVector(vector) {
+    let values = []
+    let quantity = 0
+
+    for (let i = 0; i < vector.length; i++) {
+        if (vector[i] >= 0) {
+            values = pushVector(values, vector[i])
+            quantity++
+        }
+    }
+
+    return [values, quantity]
+}
+
+export function negativeValuesOfAVector(vector) {
+    let values = []
+    let quantity = 0
+
+    for (let i = 0; i < vector.length; i++) {
+        if (vector[i] < 0) {
+            values = pushVector(values, vector[i])
+            quantity++
+        }
+    }
+
+    return [values, quantity]
+}
+
+export function sumOfValues(vector) {
+    let sum = 0
+
+    for (let i = 0; i < vector.length; i++) {
+        sum += vector[i]
+    }
+
+    return sum
+}
+
+export function meanValue(vector) {
+    const sum_of_values = sumOfValues(vector)
+
+    return sum_of_values / vector.length
 }
